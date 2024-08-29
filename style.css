@@ -8,26 +8,39 @@ body
 {
     padding: 10px;
     background-image: url("/oknauta/src/pointed_background.png");
-    *
-    {
-        font-family: 'Courier New', Courier, monospace;
-        color: white;
-        text-decoration: none;
-    }
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
 }
+
+.game div *
+{
+    margin: 10px;
+}
+
+header a
+{
+    color: white;
+    padding: 10px;
+}
+a
+{
+    text-decoration: none;
+    color: rgb(128, 0, 0);
+}
+
 
 .box
 {
-    width: 80%;
+    max-width: 80%;
     margin: 20px auto; 
-    padding: 1%;
+    padding: 2em;
     box-shadow: 10px 10px green;
     background-color: black;
 }
 
 ::-webkit-scrollbar
 {
-width: 30px;
+    width: 30px;
 }
 
 ::-webkit-scrollbar-track
@@ -47,7 +60,7 @@ background: rgb(0, 81, 0);
 
 footer.box
 {
-    width: 10em; margin: auto;
+    max-width: 10em; margin: auto;
     
 }
 
