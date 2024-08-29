@@ -8,7 +8,7 @@ body
 {
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #e9e9e9;
     background-image: radial-gradient(circle, black, 1px, transparent 1px);
     background-size: 20px 20px;
     color: white;
@@ -57,7 +57,8 @@ nav .nav-links a:hover
     max-width: 90%;
     margin: 20px auto;
     padding: 2em;
-    background-color: rgb(26, 26, 26);
+    background-color: rgb(20, 20, 20);
+    /* background-color: radial-gradient(circle, black, 1px, transparent 1px); */
     box-shadow: 0 4px 4px black;
 }
 
@@ -105,9 +106,8 @@ nav .nav-links a:hover
 
 .project-image
 {
-    max-width: 80%;
+    max-width: 60%;
     height: auto;
-    border-radius: 10px;
 }
 
 footer
@@ -159,3 +159,29 @@ footer.box
 {
     background: rgb(0, 81, 0);
 }
+
+img
+{
+    border: green 3px solid;
+}
+
+.pictures {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.pictures img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    #threed-models-pictures {
+        grid-template-columns: 1fr;
+    }
+}
+
