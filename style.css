@@ -1,0 +1,41 @@
+/*
+  Date: 2024-08-28
+  File: index.html
+Author: oknauta
+*/
+
+body
+{
+    
+    padding: 10px;
+    margin: 0;
+    
+    header, section
+    {
+        margin: 10px 0;
+    }
+    
+    *
+    {
+        font-family: 'Courier New', Courier, monospace;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.main-contain
+{
+    width: 80%; margin: 10px auto; 
+}
+
+::-webkit-scrollbar
+{
+    width: 10px;
+}
+
+header, section.main-contain, footer
+{
+    padding: 10px;
+    box-shadow: 5px 5px purple;
+    background-color: black ;
+}
