@@ -169,6 +169,7 @@ img
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    margin: auto;
 }
 
 .pictures img
@@ -263,4 +264,9 @@ img
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
+}
+
+.highlight
+{
+    color: rgb(171, 0, 0)
 }
