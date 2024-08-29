@@ -6,74 +6,150 @@ Author: oknauta
 
 body
 {
-    padding: 10px;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(218, 218, 218);
     background-image: url("/oknauta/src/pointed_background.png");
     color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: monospace
 }
 
-.game div *
+nav
 {
-    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
 }
 
-header a
+nav .logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: green;
+}
+
+nav .nav-links a
 {
+    margin-left: 20px;
     color: white;
-    padding: 10px;
-}
-a
-{
     text-decoration: none;
-    color: rgb(128, 0, 0);
+    transition: color 0.3s ease;
 }
 
+nav .nav-links a:hover
+{
+    color: green;
+}
+
+#about-me
+{
+    max-width: 40em;
+}
 
 .box
 {
-    max-width: 80%;
-    margin: 20px auto; 
+    max-width: 90%;
+    margin: 20px auto;
     padding: 2em;
-    box-shadow: 10px 10px green;
-    background-color: black;
-}
-
-::-webkit-scrollbar
-{
-    width: 30px;
-}
-
-::-webkit-scrollbar-track
-{
-    background-color: rgb(216, 216, 216);
-}
-
-::-webkit-scrollbar-thumb
-{
-background: green; 
-}
-
-::-webkit-scrollbar-thumb:hover
-{
-background: rgb(0, 81, 0); 
-}
-
-footer.box
-{
-    max-width: 10em; margin: auto;
-    
+    background-color: rgb(26, 26, 26);
+    box-shadow: 0 4px 4px black;
 }
 
 #main-section
 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url('src/image_0.png');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0px -200px;
+    height: 70vh;
+}
+
+.intro
+{
+    text-align: center;
 }
 
 #main-slogan
 {
     font-size: clamp(40px, 8vw, 120px);
+}
+
+.intro-text
+{
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.section-title
+{
+    font-size: 2.5em;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.project-content
+{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.project-image
+{
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+footer
+{
+    text-align: center;
+    font-size: 0.9em;
+    padding: 1em 0;
+}
+
+@media (max-width: 768px)
+{
+    nav .nav-links
+    {
+        flex-direction: column;
+    }
+
+    .project-content
+    {
+        flex-direction: column;
+    }
+
+    .project-image
+    {
+        max-width: 100%;
+    }
+}
+
+footer.box 
+{
+    max-width: 40em;
+}
+
+::-webkit-scrollbar
+{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track
+{
+    background-color: rgb(26, 26, 26);
+}
+
+::-webkit-scrollbar-thumb
+{
+    background: green;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+    background: rgb(0, 81, 0);
 }
