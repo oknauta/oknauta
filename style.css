@@ -8,10 +8,11 @@ body
 {
     margin: 0;
     padding: 0;
-    background-color: rgb(218, 218, 218);
-    background-image: url("/oknauta/src/pointed_background.png");
+    background-color: #f9f9f9;
+    background-image: radial-gradient(circle, black, 1px, transparent 1px);
+    background-size: 20px 20px;
     color: white;
-    font-family: monospace
+    font-family: monospace;
 }
 
 nav
@@ -26,6 +27,11 @@ nav .logo {
     font-size: 2em;
     font-weight: bold;
     color: green;
+}
+
+nav .nav-links {
+    display: flex;
+    gap: 20px;
 }
 
 nav .nav-links a
@@ -57,13 +63,13 @@ nav .nav-links a:hover
 
 #main-section
 {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     background-image: url('src/image_0.png');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 70vh;
+    max-height: 120vh;
 }
 
 .intro
