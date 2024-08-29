@@ -6,15 +6,8 @@ Author: oknauta
 
 body
 {
-    
     padding: 10px;
-    margin: 0;
-    
-    header, section
-    {
-        margin: 10px 0;
-    }
-    
+    background-image: url("/oknauta/src/pointed_background.png");
     *
     {
         font-family: 'Courier New', Courier, monospace;
@@ -23,19 +16,51 @@ body
     }
 }
 
-.main-contain
+.box
 {
-    width: 80%; margin: 10px auto; 
+    width: 80%;
+    margin: 20px auto; 
+    padding: 1%;
+    box-shadow: 10px 10px green;
+    background-color: black;
 }
 
 ::-webkit-scrollbar
 {
-    width: 10px;
+width: 30px;
 }
 
-header, section.main-contain, footer
+::-webkit-scrollbar-track
 {
-    padding: 10px;
-    box-shadow: 5px 5px purple;
-    background-color: black ;
+    background-color: rgb(216, 216, 216);
+}
+
+::-webkit-scrollbar-thumb
+{
+background: green; 
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+background: rgb(0, 81, 0); 
+}
+
+footer.box
+{
+    width: 10em; margin: auto;
+    
+}
+
+#main-section
+{
+    background-image: url('src/image_0.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -200px;
+}
+
+#main-slogan
+{
+    font-size: clamp(40px, 8vw, 120px);
+    text-align: center;
 }
