@@ -20,22 +20,21 @@ body
     font-family: monospace;
 }
 
-nav
+header nav
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
 }
 
-nav .logo
+header nav .logo
 {
     font-size: 2em;
     font-weight: bold;
     color: green;
 }
 
-nav .nav-links
+header nav .nav-links
 {
     display: flex;
     gap: 20px;
@@ -190,11 +189,6 @@ footer.box
 ::-webkit-scrollbar-thumb:hover
 {
     background: rgb(0, 81, 0);
-}
-
-img
-{
-    border: green 3px solid;
 }
 
 .pictures

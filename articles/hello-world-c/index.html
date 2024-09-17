@@ -8,29 +8,17 @@
     <meta name="keywords" content="programação, programming, c, c++, c/c++, hello world, hello world in c">
     <meta name="author" content="oknauta">
     <link rel="stylesheet" href="/oknauta/style.css">
+    <script type="module" src="/oknauta/scripts.js"></script>
 </head>
 <body>
-    <header class="box">
-        <nav>
-            <div style="display: flex; align-items: center;">
-                <img src="/oknauta/src/profile_pic_1.png" alt="Profile picture" width="90" style="margin-right: 10px; border-radius: 10px;">
-                <a href="/oknauta/" class="logo">oknauta</a>
-            </div>
-            <div class="nav-links">
-                <a href="/oknauta/3d_models">Modelos 3D</a>
-                <a href="/oknauta/#pixel-arts">Pixel arts</a>
-                <a href="/oknauta/#projects">Projetos</a>
-                <a href="/oknauta/articles">Artigos</a>
-            </div>
-        </nav>
-    </header>
     
+    <my-header></my-header>
     <article class="box" style="max-width: 60em;">
         <h1 style="text-align: center;">
             Olá mundo em C
         </h1>
         
-        <div class="date">Criado em 2024-09-16</div>
+        <div class="date">Postado em 2024-09-16 por oknauta</div>
         
         <p>Em C, para a gente receber e enviar mensagens para o compuador devemos utilizar a biblioteca padrão "stdio.h" - pois todas as funções já estão feitas para a gente.</p>
         <p>O nome dessa biblioteca vem de "standard" (traduzindo ficaria "padronizado") e "input/output" - entrada e saída.</p>
@@ -41,7 +29,9 @@
 <span style='color:#696969; '>// Date: 2024-09-14</span>
 <span style='color:#696969; '>// Author: oknauta</span>
 <span style='color:#696969; '>// License: GNU General Public License</span>
+
 <span style='color:#004a43; '>#</span><span style='color:#004a43; '>include </span><span style='color:#800000; '>&lt;</span><span style='color:#40015a; '>stdio.h</span><span style='color:#800000; '>></span>
+
 <span style='color:#800000; font-weight:bold; '>int</span> <span style='color:#400000; '>main</span><span style='color:#808030; '>(</span><span style='color:#808030; '>)</span>
 <span style='color:#800080; '>{</span>
     <span style='color:#603000; '>printf</span><span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>Hello, world!</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
@@ -49,12 +39,11 @@
 <span style='color:#800080; '>}</span>
 <!--Created using ToHTML.com on 2024-09-16 22:32:54 UTC -->
 </pre>
+    <p>E é isso! Primeira matéria completa! Obrigado por ler!</p>
+    
         
     </article>
     
-    <footer class="box">
-        <p>&copy; 2024 oknauta</p>
-        <p>Por favor, não copie este site :)</p>
-    </footer>
+    <my-footer></my-footer>
 </body>
 </html>
