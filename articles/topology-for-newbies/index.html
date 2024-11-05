@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | oknauta</title>
+    <meta name="description" content="Portfólio de oknauta">
+    <meta name="keywords" content="portfólio, portfolio, blender, godot, programação, programming, HTML, CSS, modelo-3d, 3d-model">
+    <meta name="author" content="oknauta">
+    <link rel="stylesheet" href="/oknauta/style.css">
+    <script type="module" src="/oknauta/scripts.js"></script>
+</head>
+<body>
+    <my-header></my-header>
+    
+    <section class="box" style="max-width: 60em;">
+        
+        
+        
+        
+        <h1 class="title">Topologia para newbies</h1>
+        
+        <div class="date">Postado em 2024-09-16 por oknauta</div>
+        
+        
+        
+        
+        
+        <h1 id="antes-de-tudo-">Antes de tudo…</h1>
+        <p>Antes de falar sobre o que é topologia em si, devemos entender o básico do básico. Que são vertices, edges (traduzindo ficaria aresta), e faces. Só para recapitular, vai que você esqueceu de alguma coisa.</p>
+        <h2 id="o-b-sico-do-b-sico">O básico do básico</h2>
+        <p>Imagine vertices como 4 pontos - 2 em cima em 2 em baixo.</p>
+        <p>Nós podemos conectar esses vertices de uma forma que pareça com um quadrado. Percebeu que agora ficou essa linha preta? Isso nós chamamos de aresta, edge.</p>
+        <p>Por fim, nós podemos pintar esse quadrado por dentro de vermelho. Esse vermelho é a nossa face, que é opcional na topologia. Obrigatoriamente, uma face deve ter pelo menos 3 vertices para se tornar uma face. As faces podem ser triângulos, quadrados e N-Gons. N-Gons são as faces que possuem mais de 4 vértices.</p>
+        <p>O conjunto de vertices, edges e faces são chamados de malha, ou mesh.</p>
+        <h2 id="uma-explica-o-avan-ada">Uma explicação avançada</h2>
+        <p>E esse quadrado… Não é um quadrado de verdade na computação, é ilusório. Tudo que é face, quadrado, círculos sempre serão compostos por triângulos. Não se preocupe, só saiba que todas as faces sempre serão triângulos. Isso é um assunto mais complexo que você não precisa entender, exceto se for programar em OpenGL ou DirectX.</p>
+        <p>Aliás, vertices e arestas podem conter propriedades que nos ajudarão a formar nossos modelos. Isso explicarei mais um pouco mais pra frente.</p>
+        <h1 id="t-mas-o-que-topologia-">Tá, mas o que é topologia?</h1>
+        <p>Topologia basicamente é como os vertices, arestas e faces são organizadas.</p>
+        <p>Pegue como base esse cubo, ele tem 4 faces e 8 vertices. Isso já é topologia! Mas se é uma topologia boa ou ruim a gente tem que descobrir. Vamos por exemplo, pegar outro cubo, esse cubo é idêntico ao outro, certo? No visual sim, mas se a gente pegar o wireframe vamos ver que ele está triangulado. Isso nós chamamos de topologia, como o modelo é feito, como a malha é estruturada.</p>
+        <p>É bem mais complexo que isso, vou explicar por partes, pois há algumas subcategorias que compõem a topologia.</p>
+        <p>Como organização de edges loops, subdivisão, poles, redução de edge loop e crease.</p>
+        <p>Esses são alguns que eu acho que são os mais importantes para compor uma mesh bem feita.</p>
+        <h2 id="organiza-o-de-edge-loops">Organização de edge loops</h2>
+        <p>Vamos começar com a organização de edge loops.</p>
+        <p>Lembrando que edge loops são as voltas que as edge dão em torno de uma malha, e loop cut a ferramenta que faz esses loops.</p>
+        <p>Está vendo esses dois cubos? Aparentemente os dois são idênticos, até ativarmos o wireframe. Um é composto por triângulos e o outro por quadrados. Os dois estão corretos, pois tudo que está relacionado à faces, no final, sempre será triângulo.</p>
+        
+        <p>Mas, ei! Se tentarmos dar loop cut no cubo quadriculado, nós vamos conseguir fazer normalmente. Já no triangulado, não vamos conseguir realizá-lo. Pois o Blender não sabe pra onde ir, não sabe onde começa e onde termina o triângulo, não sabe se é pro lado ou se é pra baixo. No cubo quadriculado, funciona perfeitamente o loop cut, pois o Blender sabe onde começa e onde termina. Ou seja: triângulos e N-Gons não podem ser cortados com loop cut pois o Blender não sabe qual a direção o edge loop deve ir.</p>
+        <p>Se você dominar a organização de loops você vai poder criar a maior parte do que deseja. Lembrando que isso é o básico - você pode criar coisas da hora somente modelando com edge loops, mas uma hora vai você vai ter que usar outros tipos de técnicas pra refinar a malhar, como dando um insect.</p>
+        <p>Isso é a maior parte da topologia. A maioria dos modelos são feitos praticamente de quads, um pouco de tris e nada de N-Gons. Às vezes nós utilizamos triângulos, mas é algo bem raro. Exceto se você for fazer jogos ou fazer algum estilo artístico, nesses casos é sim aceitável - pois o computador calcula muito mais rápido os triângulos, não envolve matemática. Mas fuja dos N-Gons, eles são uma abominação do 3D - porque pra fazê-lo precisa de vários triângulos que apontando diretamente para o centro, deixando-o não otimizado. Vou dar um exemplo mais tarde no vídeo.</p>
+        <p>Agora, saindo um pouco de organização de edge loops… Vamos falar sobre poles.</p>
+        <h2 id="poles">Poles</h2>
+        <p>Poles são uma série de loops que terminam em um único vértice. Há uma divisão nessa subcategoria, E-pole e N-pole.</p>
+        <img src="cubes.png" alt="">
+        <p>![[Pasted image 20240811225630.png]]</p>
+        <p>Antes de explicar o que são E-pole e N-poles, faça uma malha de grid 3x3 e faça um extrude no centro. Você vai perceber que esse vértice possui 5 vertices conectados, esse é o E-pole, o extrude-pole - que é usado, obviamente, como ponte para extrude.</p>
+        <p>Já o N-pole, de nose-pole, possui 3 vertices sendo conectados a ele.</p>
+        <p>Não há muito o que falar sobre poles. É algo bem específico que você deve tomar cuidado quando for usar. Pois os criando no lado errado pode ser difícil criar loops depois.</p>
+        <h2 id="redu-o-de-edge-loops">Redução de edge loops</h2>
+        <p>A topologia não se resume somente a adicionar edge loops. Se formos fazer somente isso, podemos danificar a malha e a sobrecarregando. Veja nesse exemplo:</p>
+        
+        <img src="poles.png" srcset="">
+        
+        <p>Isso é considerado topologia ruim. Nós estamos danificando a mesh com faces desnecessárias. O que fazemos, então? É muito simples, temos que reduzir o número de faces de um jeito que faça com que exista o menor número possível de edges.</p>
+        <p>E voilà! Temos uma topologia até que boa. Claro que pode ter outros jeitos de aprimorar essa malha, mas nesse caso está perfeita.</p>
+        <p>Se você é iniciante, recomendo você pesquisar no Google alguns exemplos de edge loop reduction, já que é bem difícil memorizar de cabeça como é cada formato.</p>
+        <p>Vou explicar mais detalhadamente sobre a redução de loops em um futuro vídeo, já que é um assunto um tanto que chato.</p>
+        <h2 id="subdivision">Subdivision</h2>
+        <p>![[Organic_mesh_0.png]]</p>
+        <p>Subdivisão não faz parte exatamente da topologia, mas decidi incluí-la pois é algo que é fundamental para modelagem orgânica.</p>
+        <p>Ele é um modificador que pega uma malha e divide ela em tantas vezes. Só que com um adicional: ela pega a malha e faz uma curvatura nas bordas, deixando a malha suave. Isso serve para criarmos uma topologia orgânica, tipo, criarmos metais com bordas redondas ou criar carne - nesse caso, eu não sou profissional em criar corpos.</p>
+        <p>Para &quot;desativarmos&quot; essa puxada, nós podemos usar uma propriedade na edge chamada de <strong>mean crease</strong>. Essa é uma de algumas propriedades que os edges possuem. Vou falar sobre elas num próximo vídeo.</p>
+        <p>![[Organic_mesh_1.png]]</p>
+        <p>Aliás, os quads são perfeitos para fazer modelagem a partir de subdivisão, o subdivision modelling. Isso é: se você for fazer, por exemplo, um prato high-poly, ao invés de você fazer um círculo com 64 loops, você pode só fazer com 8 loops e colocar um modificador subdivision surface em 2. Vai ficar algo suave, e não espetado.</p>
+        <p>Além de ser algo não destrutivo, fica mais limpo a malha para a visualização. Esse prato é só um exemplo - não recomendo fazer um modelo com poucos polígonos e adicionar uma subdivisão, pois quando você for adicionar detalhes, não ficar faltando resolução.</p>
+        <p>![[Pasted image 20240811122924.png]]</p>
+        <p>Lembra quando eu disse que N-Gons possuem vários triângulos apontando para o centro? O problema está aqui (mostra a face horrível de um cilindro com subdivisão). Horrível, né?</p>
+        <p>Quando você utiliza uma subdivisão em N-Gons ele puxa a borda de todos os triângulos os deixando horrorosamente feios. Pra resolver isso é só fazer uma grid de quadrados.</p>
+        <p>![[Pasted image 20240813061222.png]]</p>
+        <h1 id="conclus-o">Conclusão</h1>
+        <p>E esse foi o vídeo! Deixe o like e se inscreve se eu abri um pouco do seu olho.</p>
+        
+        
+        
+        
+        
+        
+    </section>
+    
+    
+    
+    
+    
+    <my-footer></my-footer>
+</body>
+</html>
